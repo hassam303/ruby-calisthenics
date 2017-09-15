@@ -5,6 +5,17 @@ class Class
     attr_reader attr_name+"_history" # create bar_history getter
     class_eval %Q{
       # YOUR CODE HERE
+      def #{attr_name}=(name)
+        if !defined? @#{attr_name}_history
+          @#{attr_name}_history = [@#{attr_name}]
+        else
+          @#{attr_name}_history.push(@#{attr_name})
+        end
+        
+        @#{attr_name} = name
+      
+      end 
+      
     }
   end
 end
